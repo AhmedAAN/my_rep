@@ -9,8 +9,8 @@ int check_filepath(char *filepath)
 {
 	if (filepath == NULL)
 	{
-                        printf("Error: command not found\n");
-			return(1);
+		printf("Error: command not found\n");
+		return (1);
 	}
 	return (0);
 }
