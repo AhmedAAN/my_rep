@@ -74,7 +74,7 @@ int main(UNUSED int ac, UNUSED char **av, char **env)
 		check_env(args, env);
 		filepath = search_path(args[0]);
 		if (check_filepath(filepath))
-			break;
+			continue;
 		process(filepath, args, env);
 	}
 	free(buffer);
