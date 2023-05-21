@@ -51,9 +51,9 @@ void check_env(char **args)
  * main - Entry point for the shell program
  * Return: Always 0
  */
-int main(void)
+int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char **env)
 {
-	char *args[MAX_ARGUMENTS], *filepath, *buffer = NULL, *envp[1024];
+	char *args[MAX_ARGUMENTS], *filepath, *buffer = NULL;
 	size_t buf_size;
 	pid_t pid;
 	int run_flag = 1, num_chars;
@@ -79,8 +79,7 @@ int main(void)
 		}
 		else if (pid == 0)
 		{
-			envp[0] = NULL;
-			execve(filepath, args, envp);
+			execve(filepath, args, env);
 			printf("Error: command not found\n");
 			exit(1);
 		}
