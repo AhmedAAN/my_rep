@@ -1,13 +1,16 @@
 #include "shell.h"
 
-/***
- *
+/**
+ * process - excute process
+ * @filepath: a pointer to the path to the file of the command
+ * @args: a pointer to an array of args
+ * @env: a pointer to the environmental variable
  */
 void process(char *filepath, char *args[MAX_ARGUMENTS], char **env)
 {
-    pid_t pid;
+	pid_t pid;
 
-    pid = fork();
+	pid = fork();
 	if (pid < 0)
 	{
 		printf("Fork failed\n");

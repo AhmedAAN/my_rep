@@ -33,6 +33,7 @@ int check_exit(char **args, int *run_flag)
 /**
  * check_env - prints environment variables
  * @args: the commands array
+ * @env: a pointer to the environmental variable
  */
 void check_env(char **args, char **env)
 {
@@ -57,13 +58,14 @@ int main(UNUSED int ac, UNUSED char **av, char **env)
 {
 	char *args[MAX_ARGUMENTS], *filepath, *buffer = NULL;
 	size_t buf_size;
-	pid_t pid;
 	int run_flag = 1, num_chars;
 
 	while (run_flag)
 	{
 		printf("$ ");
 		num_chars = getline(&buffer, &buf_size, stdin);
+		if (num_chars == 1)
+			continue;
 		if (num_chars == -1)
 			break;
 		token_command(buffer, args);
