@@ -16,6 +16,14 @@ char *search_path(char *command)
 	char *executable_path = NULL;
 	char *temp_path;
 
+	if (strchr(command, '/') != NULL)
+	{
+		if (access(command, X_OK) == 0)
+		{
+			return strdup(command);
+		}
+		return NULL;
+	}
 	path = getenv("PATH");
 	path_copy = strdup(path);
 	path_dir = strtok(path_copy, ":");
