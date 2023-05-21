@@ -34,12 +34,10 @@ int check_exit(char **args, int *run_flag)
  * check_env - prints environment variables
  * @args: the commands array
  */
-void check_env(char **args)
+void check_env(char **args, char **env)
 {
 	if (strcmp(args[0], "env") == 0)
 	{
-		char **env = environ;
-
 		while (*env != NULL)
 		{
 			printf("%s\n", *env);
@@ -71,7 +69,7 @@ int main(UNUSED int ac, UNUSED char **av, char **env)
 		token_command(buffer, args);
 		if (check_exit(args, &run_flag))
 			break;
-		check_env(args);
+		check_env(args, env);
 		filepath = search_path(args[0]);
 		if (check_filepath(filepath))
 			break;
