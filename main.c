@@ -3,7 +3,7 @@
 /**
  * check_filepath - check if file path in null
  * @filepath: a pointer to the filepath
- * Return: 1 if filepath is NULL and 0 of not
+ * Return: 1 if filepath is NULL and 0 if not
  */
 int check_filepath(char *filepath)
 {
@@ -18,6 +18,7 @@ int check_filepath(char *filepath)
  * check_exit - check if the command is exit
  * @args: the arguments array
  * @run_flag: a pointer to the run flag
+ * Return: 1 if the command is exit and 0 if not
  */
 int check_exit(char **args, int *run_flag)
 {
@@ -49,9 +50,12 @@ void check_env(char **args)
 
 /**
  * main - Entry point for the shell program
+ * @ac: the number of inputs
+ * @av: the array of inputs
+ * @env: the environmental variables
  * Return: Always 0
  */
-int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char **env)
+int main(UNUSED int ac, UNUSED char **av, char **env)
 {
 	char *args[MAX_ARGUMENTS], *filepath, *buffer = NULL;
 	size_t buf_size;

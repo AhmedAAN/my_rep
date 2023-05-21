@@ -15,9 +15,11 @@
 #define MAX_COMMAND_LENGTH 1000
 #define MAX_ARGUMENTS 100
 
+#define UNUSED __attribute__((unused))
+
 extern char **environ;
 
-int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char **env);
+int main(UNUSED int ac, UNUSED char **av, char **env);
 int token_command(char *buffer, char **args);
 char *search_path(char *filename);
 int check_exit(char **args, int *run_flag);

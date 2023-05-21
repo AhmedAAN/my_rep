@@ -20,9 +20,9 @@ char *search_path(char *command)
 	{
 		if (access(command, X_OK) == 0)
 		{
-			return strdup(command);
+			return (strdup(command));
 		}
-		return NULL;
+		return (NULL);
 	}
 	path = getenv("PATH");
 	path_copy = strdup(path);
