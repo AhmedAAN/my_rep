@@ -17,7 +17,7 @@
 
 extern char **environ;
 
-int main(void);
+int main(__attribute__((unused)) int ac,__attribute__((unused)) char **av, char **env);
 int token_command(char *buffer, char **args);
 char *search_path(char *filename);
 int check_exit(char **args, int *run_flag);
