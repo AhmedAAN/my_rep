@@ -73,22 +73,7 @@ int main(UNUSED int ac, UNUSED char **av, char **env)
 		filepath = search_path(args[0]);
 		if (check_filepath(filepath))
 			break;
-		pid = fork();
-		if (pid < 0)
-		{
-			printf("Fork failed\n");
-			exit(1);
-		}
-		else if (pid == 0)
-		{
-			execve(filepath, args, env);
-			printf("Error: command not found\n");
-			exit(1);
-		}
-		else
-		{
-			wait(NULL);
-		}
+		process(filepath, args, env);
 	}
 	free(buffer);
 	return (0);

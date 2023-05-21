@@ -25,6 +25,6 @@ char *search_path(char *filename);
 int check_exit(char **args, int *run_flag);
 void check_env(char **args, char **env);
 int check_filepath(char *filepath);
-
+void process(char *filepath, char *args[MAX_ARGUMENTS], char **env);
 
 #endif
