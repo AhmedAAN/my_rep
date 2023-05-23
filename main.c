@@ -9,7 +9,8 @@ int check_filepath(char *filepath)
 {
 	if (filepath == NULL)
 	{
-		printf("Error: command not found\n");
+		_printf("Error: command not found");
+		_putchar('\n');
 		return (1);
 	}
 	return (0);
@@ -41,7 +42,8 @@ void check_env(char **args, char **env)
 	{
 		while (*env != NULL)
 		{
-			printf("%s\n", *env);
+			_printf(*env);
+			_putchar('\n');
 			env++;
 		}
 	}

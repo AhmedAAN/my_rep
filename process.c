@@ -13,13 +13,15 @@ void process(char *filepath, char *args[MAX_ARGUMENTS], char **env)
 	pid = fork();
 	if (pid < 0)
 	{
-		printf("Fork failed\n");
+		_printf("Fork failed");
+		_putchar('\n');
 		exit(1);
 	}
 	else if (pid == 0)
 	{
 		execve(filepath, args, env);
-		printf("Error: command not found\n");
+		_printf("Error: command not found");
+		_putchar('\n');
 		exit(1);
 	}
 	else
